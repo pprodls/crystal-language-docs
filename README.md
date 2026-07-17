@@ -1,113 +1,176 @@
-# Crystal Programming Language
+# Crystal 语言文档
 
-This is the language reference for the Crystal programming language.
+Crystal 编程语言的参考文档、手册和学习资料
 
-Crystal is a programming language with the following goals:
+## 项目简介
 
-* Have a syntax similar to Ruby (but compatibility with it is not a goal).
-* Be statically type-checked, but without having to specify the type of variables or method parameters.
-* Be able to call C code by writing bindings to it in Crystal.
-* Have compile-time evaluation and generation of code, to avoid boilerplate code.
-* Compile to efficient native code.
+这是 Crystal 编程语言的官方文档项目，提供完整的语言参考、教程和最佳实践指南。
 
-**Crystal's standard library is documented in the [API docs](https://crystal-lang.org/api).**
+## 关于 Crystal
 
-## Contributing to the Language Reference
+Crystal 是一种现代化的编程语言，具有以下特点：
 
-Do you consider yourself a helpful person? If you find bugs or sections
-which need more clarification you're welcome to contribute to this
-language reference. You can submit a pull request to this repository:
-https://github.com/crystal-lang/crystal-book
+- ⚡ **高性能** - 接近 C 语言的执行速度
+- 🛡️ **类型安全** - 编译时类型检查
+- 📝 **简洁语法** - 类似 Ruby 的优雅语法
+- 🔧 **并发支持** - 原生并发和异步编程
+- 📦 **依赖管理** - 内置包管理器
 
-Thank you very much!
+## 文档内容
 
-### Branches
+### 语言参考
+- 基础语法
+- 类型系统
+- 控制流
+- 面向对象编程
+- 泛型
+- 宏
 
-There is a separate branch for every minor Crystal release, all deployed alongside each other on https://crystal-lang.org/reference/
-Typically, only branches of maintained releases receive updates, i.e. the branch for the most recent Crystal release.
+### 标准库
+- 集合类型
+- 字符串处理
+- 文件 I/O
+- 网络编程
+- 并发原语
 
-* Changes that apply to the current Crystal release should go into the most recent `release/*` branch.
-* Changes that apply to yet unreleased features should go into `next`. They'll be part of the `release/*` branch for the next release.
-  The `next` branch is deployed at https://crystal-lang.org/reference/master/
+### 指南
+- 入门教程
+- 安装指南
+- 开发环境配置
+- 最佳实践
+- 性能优化
 
-### Building and Serving Locally
+### 高级主题
+- C 绑定
+- 嵌入式开发
+- Web 开发
+- 数据库操作
 
-```console
-$ git clone https://github.com/crystal-lang/crystal-book
-$ cd crystal-book
-$ pip install -r requirements.txt
-```
+## 快速开始
 
-Live preview (at http://127.0.0.1:8000):
+### 安装 Crystal
 
-```console
-$ make serve
-INFO    -  Building documentation...
-INFO    -  Cleaning site directory
-INFO    -  Documentation built in 3.02 seconds
-INFO    -  Serving on http://127.0.0.1:8000
-...
-```
+`ash
+# macOS
+brew install crystal
 
-Build into the `site` directory (some functionality won't work if opening the files locally):
+# Ubuntu/Debian
+curl -fsSL https://crystal-lang.org/install.sh | sudo bash
 
-```console
-$ make build
-```
+# Windows (WSL)
+# 参考官方文档
+`
 
-### devenv environment
+### 第一个程序
 
-This project includes configuration for a reproducible environment via [devenv.sh](https://devenv.sh/)
-with integrated pre-commit checks.
+`crystal
+# hello.cr
+puts "你好，世界！"
+`
 
-Live preview (at http://127.0.0.1:8000):
+编译运行：
+`ash
+crystal hello.cr
+`
 
-```console
-$ devenv up
-Building shell ...
-pre-commit-hooks.nix: hooks up to date
-17:37:13 system  | serve.1 started (pid=6507)
-17:37:13 serve.1 | INFO     -  Building documentation...
-17:37:13 serve.1 | INFO     -  Cleaning site directory
-17:37:16 serve.1 | INFO     -  Documentation built in 2.64 seconds
-17:37:16 serve.1 | INFO     -  [17:37:16] Watching paths for changes: 'docs', 'mkdocs.yml'
-17:37:16 serve.1 | INFO     -  [17:37:16] Serving on http://127.0.0.1:8000/reference/latest/
-````
+## 学习资源
 
-Build the site:
+### 官方资源
+- [Crystal 官网](https://crystal-lang.org/)
+- [官方文档](https://crystal-lang.org/reference)
+- [API 文档](https://crystal-lang.org/api)
 
-```console
-$ devenv shell build
-Building shell ...
-pre-commit-hooks.nix: hooks up to date
-rm -rf ./site
-mkdocs build -d ./site  --strict
-INFO     -  Cleaning site directory
-INFO     -  Building documentation to directory: ./site
-INFO     -  Documentation built in 2.43 seconds
-```
+### 社区资源
+- [Crystal 论坛](https://forum.crystal-lang.org/)
+- [GitHub 仓库](https://github.com/crystal-lang/crystal)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/crystal-lang)
 
-Enter the development shell and build the site from there:
+### 示例项目
+- [Crystal By Example](https://crystal-lang.org/reference/syntax_and_semantics/)
+- [Crystal 资源列表](https://github.com/veelenga/awesome-crystal)
 
-```console
-$ devenv shell
-Building shell ...
-Entering shell ...
+## 开发工具
 
-pre-commit-hooks.nix: hooks up to date
-$(devenv) make build
-mkdocs build -d ./site  --strict
-INFO     -  Cleaning site directory
-INFO     -  Building documentation to directory: ./site
-INFO     -  Documentation built in 2.43 seconds
-```
+### IDE 支持
+- VS Code (推荐)
+- IntelliJ IDEA
+- Vim/Neovim
+- Emacs
 
-Run pre-commit checks on the entire repository:
+### 常用工具
+- crystal - 编译器和运行时
+- shards - 包管理器
+- crystal spec - 测试框架
+- crystal doc - 文档生成器
 
-```console
-$ devenv ci
-```
+## 代码示例
 
-### Adding a page
+### 基础示例
 
-To add a page, create a Markdown file in the desired location. Then, add a link in the `SUMMARY.md` file which acts as the navigation for the language reference.
+`crystal
+# 变量和类型
+name = "Crystal"
+version = 1.0
+is_awesome = true
+
+# 数组
+numbers = [1, 2, 3, 4, 5]
+names = ["Alice", "Bob", "Charlie"]
+
+# 哈希
+person = {
+  "name" => "张三",
+  "age" => 25,
+  "city" => "北京"
+}
+
+# 函数
+def greet(name : String)
+  puts "你好，#{name}！"
+end
+
+greet("Crystal")
+`
+
+### 面向对象
+
+`crystal
+class Animal
+  property name : String
+  
+  def initialize(@name)
+  end
+  
+  def speak
+    puts "#{@name} 发出声音"
+  end
+end
+
+class Dog < Animal
+  def speak
+    puts "#{@name} 汪汪叫"
+  end
+end
+
+dog = Dog.new("小黑")
+dog.speak  # 输出: 小黑 汪汪叫
+`
+
+## 贡献指南
+
+欢迎贡献文档内容！
+
+1. Fork 项目
+2. 创建文档分支 (git checkout -b docs/add-new-section)
+3. 编写或翻译文档
+4. 提交更改 (git commit -m '添加新的文档章节')
+5. 推送到分支 (git push origin docs/add-new-section)
+6. 创建 Pull Request
+
+## 许可证
+
+Apache License 2.0
+
+## 更新日志
+
+- 2026-07-17: 添加中文README文档
